@@ -3,6 +3,7 @@ import {  BrowserRouter, Route, Routes} from 'react-router-dom';
 import Account from './components/Account';
 import FilmRolls from './components/FilmRolls';
 import Home from './components/Home';
+import Menu from "./components/Menu";
 import Review from './components/Review';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/filmrolls" element={<FilmRolls />} />
           <Route exact path="/account" element={<Account/>} />
         </Routes>
+        <Menu />
       </BrowserRouter>
     </div>
   );
