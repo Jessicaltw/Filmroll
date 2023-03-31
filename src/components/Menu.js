@@ -16,18 +16,15 @@ export default function LabelBottomNavigation() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-
-  
-
- 
   };
 
   return (
     <BottomNavigation sx={{ backgroundColor: 'black' ,  width: 500 }} value={value} onChange={handleChange}>
       <BottomNavigationAction
-        label="Search"
-        value="recents"
-        icon={<SearchIcon sx={{ color: 'white'}}/>}
+        label="Favorite"
+        value="favorite" 
+        icon={<FavoriteIcon sx={{ 
+          color: value === 'favorite' ? 'white' : 'white',}}/>}
       />
       <BottomNavigationAction
         label="Rolls"

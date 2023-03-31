@@ -7,18 +7,17 @@ import Menu from "./components/Menu";
 import Review from './components/Review';
 import {Box} from '@mui/material';
 import {Stack} from '@mui/material';
-import AppBar from '@mui/material/AppBar';
+import ButtonAppBar from './components/ButtonAppBar';
 
 
 function App() {
   return (
-    <Box sx={{backgroundColor: 'black' , color:'white', textAlign: 'center'}}>
+    <Box sx={{backgroundColor: 'white' , color:'white', textAlign: 'center', marginTop: 0, margin: 0, padding: 0 }}>
  
-      <Stack direction="row" justifyContent="center">
+      <Stack direction="row" justifyContent="center" mt={0}>
     <div className="App">
-      Filmroll
-    
-      <BrowserRouter>
+      <ButtonAppBar /> 
+      <BrowserRouter sx={{ margin: 0 }}>
         <Routes>
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/review" element={<Review />} />
