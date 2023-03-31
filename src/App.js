@@ -5,12 +5,19 @@ import FilmRolls from './components/FilmRolls';
 import Home from './components/Home';
 import Menu from "./components/Menu";
 import Review from './components/Review';
+import {Box} from '@mui/material';
+import {Stack} from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+
 
 function App() {
   return (
+    <Box sx={{backgroundColor: 'black' , color:'white', textAlign: 'center'}}>
+ 
+      <Stack direction="row" justifyContent="center">
     <div className="App">
-      hello, Filmroll.
-
+      Filmroll
+    
       <BrowserRouter>
         <Routes>
           <Route exact path="/home" element={<Home />} />
@@ -19,8 +26,13 @@ function App() {
           <Route exact path="/account" element={<Account/>} />
         </Routes>
         <Menu />
+        
+        
       </BrowserRouter>
+     
     </div>
+    </Stack>
+    </Box>
   );
 }
 

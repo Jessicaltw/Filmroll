@@ -4,33 +4,45 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import FolderIcon from '@mui/icons-material/Folder';
 import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import CameraRollIcon from '@mui/icons-material/CameraRoll';
+import HomeIcon from '@mui/icons-material/Home';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import SearchIcon from '@mui/icons-material/Search';
+
+
 
 export default function LabelBottomNavigation() {
   const [value, setValue] = React.useState('recents');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+
+  
+
+ 
   };
 
   return (
-    <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange}>
+    <BottomNavigation sx={{ backgroundColor: 'black' ,  width: 500 }} value={value} onChange={handleChange}>
       <BottomNavigationAction
-        label="Recents"
+        label="Search"
         value="recents"
-        icon={<RestoreIcon />}
+        icon={<SearchIcon sx={{ color: 'white'}}/>}
       />
       <BottomNavigationAction
-        label="Favorites"
+        label="Rolls"
         value="favorites"
-        icon={<FavoriteIcon />}
+        icon={<CameraRollIcon sx={{ color: 'white'}}/>}
       />
       <BottomNavigationAction
-        label="Nearby"
+        label="Home"
         value="nearby"
-        icon={<LocationOnIcon />}
+        icon={<HomeIcon sx={{ color: 'white'}} />}
       />
-      <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
-    </BottomNavigation>
+      <BottomNavigationAction 
+      label="Account" 
+      value="folder" 
+      icon={< AccountCircleIcon sx={{ color: 'white'}}/>} />
+    </BottomNavigation >
   );
 }

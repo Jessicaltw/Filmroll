@@ -4,6 +4,11 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import dogImage from '../assets/img/dog.jpg';
+import disneyImage from '../assets/img/disney.jpg';
+import streetImage from '../assets/img/street.jpeg';
+
+
 
 function srcset(image, width, height, rows = 1, cols = 1) {
   return {
@@ -24,33 +29,39 @@ export default function CustomImageList() {
         transform: 'translateZ(0)',
       }}
       rowHeight={200}
-      gap={1}
+      gap={0}
     >
       {itemData.map((item) => {
         const cols = item.featured ? 2 : 1;
         const rows = item.featured ? 2 : 1;
 
         return (
-          <ImageListItem key={item.img} cols={cols} rows={rows}>
+          <ImageListItem key={item.img} cols={cols} rows={rows} >
             <img
               {...srcset(item.img, 250, 200, rows, cols)}
               alt={item.title}
               loading="lazy"
+              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+            
             />
             <ImageListItemBar
               sx={{
+             
+                alignItems: 'flex-start',
+                bottom: 0, left: 0, right: 0, textAlign: 'left', paddingTop: '10px', paddingBottom: '10px',
                 background:
-                  'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
-                  'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+                'linear-gradient(to bottom, rgba(0,0,0,0) 0%, ' +
+                'rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.7) 100%)'
+                
               }}
               title={item.title}
-              position="top"
+              position="bottom"
               actionIcon={
                 <IconButton
-                  sx={{ color: 'white' }}
+                  sx={{  color: 'white' }}
                   aria-label={`star ${item.title}`}
                 >
-                  <StarBorderIcon />
+               {/* <StarBorderIcon /> */}
                 </IconButton>
               }
               actionPosition="left"
@@ -64,29 +75,29 @@ export default function CustomImageList() {
 
 const itemData = [
   {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-    title: 'Breakfast',
+    img: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*_svphjAkeWsqObuteDmSoA.jpeg',
+    title: 'Fujifilm Superia X-Tra 400',
     author: '@bkristastucchio',
     featured: true,
   },
   {
-    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-    title: 'Burger',
+    img: streetImage ,
+    title: 'Kodak Gold 200',
     author: '@rollelflex_graphy726',
   },
   {
-    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-    title: 'Camera',
+    img: 'https://storage.googleapis.com/orms-blog/1/2020/11/r1-08357-031a.jpg',
+    title: 'Fujifilm Superia 400',
     author: '@helloimnik',
   },
   {
-    img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-    title: 'Coffee',
+    img: dogImage,
+    title: 'Kodak Ultra Max 400',
     author: '@nolanissac',
   },
   {
-    img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-    title: 'Hats',
+    img: disneyImage,
+    title: 'Kodak ColorPlus',
     author: '@hjrc33',
   },
   {
