@@ -8,6 +8,7 @@ import CameraRollIcon from '@mui/icons-material/CameraRoll';
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
+import { Link } from "react-router-dom";
 
 
 
@@ -20,7 +21,7 @@ export default function LabelBottomNavigation() {
 
   return (
     <BottomNavigation sx={{ backgroundColor: 'black' ,  width: 500 }} value={value} onChange={handleChange}>
-      <BottomNavigationAction
+      <BottomNavigationAction 
         label="Favorite"
         value="favorite" 
         icon={<FavoriteIcon sx={{ 
@@ -31,7 +32,7 @@ export default function LabelBottomNavigation() {
         value="favorites"
         icon={<CameraRollIcon sx={{ color: 'white'}}/>}
       />
-      <BottomNavigationAction
+      <BottomNavigationAction component={Link}  to="/home"
         label="Home"
         value="nearby"
         icon={<HomeIcon sx={{ color: 'white'}} />}

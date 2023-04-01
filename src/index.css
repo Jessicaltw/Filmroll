@@ -12,3 +12,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.title-wrapper {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding-bottom: 0.4rem;
+}
+
+.subtitle-wrapper {
+  font-size: 14px;
+  color: #c4c4c4;
+  padding-bottom: 0.8rem;
+
+  
+}
+
