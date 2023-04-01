@@ -21,12 +21,15 @@ function App() {
       <ButtonAppBar /> 
       <BrowserRouter sx={{ margin: 0 }}>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/review" element={<Review />} />
           <Route exact path="/filmrolls" element={<FilmRolls />} />
           <Route exact path="/account" element={<Account/>} />
         </Routes>
+    
         <Menu />
+     
         
         
       </BrowserRouter>

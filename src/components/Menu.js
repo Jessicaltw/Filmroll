@@ -20,27 +20,35 @@ export default function LabelBottomNavigation() {
   };
 
   return (
-    <BottomNavigation sx={{ backgroundColor: 'black' ,  width: 500 }} value={value} onChange={handleChange}>
+    <BottomNavigation sx={{ 
+    backgroundColor: 'black',  width: 500, height: 50, 
+    display: 'flex',
+    justifyContent: 'center',
+    position: 'absolute',
+    padding: '10px 0',//borderRadius: '2rem',//
+    left: '50%',
+    transform: 'translateX(-50%)'
+     }} value={value} onChange={handleChange}>
       <BottomNavigationAction 
         label="Favorite"
         value="favorite" 
         icon={<FavoriteIcon sx={{ 
-          color: value === 'favorite' ? 'white' : 'white',}}/>}
+          color: value === 'favorite' ? 'white' : 'white', fontSize: '2rem',}}/>}
       />
       <BottomNavigationAction
         label="Rolls"
         value="favorites"
-        icon={<CameraRollIcon sx={{ color: 'white'}}/>}
+        icon={<CameraRollIcon sx={{ color: 'white', fontSize: '2rem',}}/>}
       />
       <BottomNavigationAction component={Link}  to="/home"
         label="Home"
         value="nearby"
-        icon={<HomeIcon sx={{ color: 'white'}} />}
+        icon={<HomeIcon sx={{ color: 'white' , fontSize: '2rem',}} />}
       />
       <BottomNavigationAction 
       label="Account" 
       value="folder" 
-      icon={< AccountCircleIcon sx={{ color: 'white'}}/>} />
+      icon={< AccountCircleIcon sx={{ color: 'white' , fontSize: '2rem',}}/>} />
     </BottomNavigation >
   );
 }
