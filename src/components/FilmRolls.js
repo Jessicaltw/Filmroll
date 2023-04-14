@@ -16,7 +16,24 @@ import lomo100Image from '../assets/img/lomo100.png';
 import fuji400Image from '../assets/img/fuji400.png';
 import colorplusImage from '../assets/img/colorplus.png';
 import sheepImage from '../assets/img/sheep.jpg';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import DirectionsIcon from '@mui/icons-material/Directions';
+import { useState } from 'react';
 
+
+function MyComponent() {
+  const [brandFocused, setBrandFocused] = useState(false);
+  const [isoFocused, setIsoFocused] = useState(false);
+  
+}
 
 
 
@@ -28,13 +45,102 @@ const ScrollableBox = ({ children }) => {
   )
 }
 
+const Brands = [
+  { label: 'Kodak'},
+  { label: 'FujiFilm'},
+  { label: 'Cira'},
+];
+
+const iso = [
+  { label: '100'},
+  { label: '200'},
+  { label: '400'},
+];
+
+const CustomTextField = styled(TextField)(({ theme }) => ({
+
+  '& .MuiSvgIcon-root': {
+    color: 'white', // Change the color of the arrow icon here
+  },
+
+  '& .MuiInputLabel-root': {
+    color: 'white',
+  },
+  '& .MuiInputLabel-shrink': {
+    color: 'white',
+  },
+  '& .MuiInputBase-input': {
+    color: 'white'
+  },
+  '& input': {
+    color: 'white', // Change the text color here
+  },
+}));
+
+const CustomAutocomplete = styled(Autocomplete)`
+  .MuiAutocomplete-popupIndicator {
+    color: yellow;
+  }
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #B47D0E;
+    border-width: 0.75px;
+    height: 54px;
+    width:180;
+  }
+`;
+
+
 
 export default function MediaControlCard() {
   const theme = useTheme();
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: 800, overflowY: 'scroll'}}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center',  height: 800, overflowY: 'scroll',backgroundColor:'black'}}>
         <ScrollableBox>
+
+        <Paper
+  component="form"
+  sx={{
+    p: '2px 4px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent:'center',
+    width: 350,
+    margin: 'auto'
+  }}
+>
+  <Box sx={{ mx: 'auto' }}>
+    <InputBase
+      sx={{ ml: 1 }}
+      placeholder="Search Google Maps"
+      inputProps={{ 'aria-label': 'search google maps' }}
+    />
+  </Box>
+  <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+    <SearchIcon />
+  </IconButton>
+  <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+</Paper>
+
+
+
+<Box sx={{ display: 'flex', flexDirection: 'row', justifyContent:'center', gap: 4, padding:'1rem',backgroundColor:'black' }}>
+  <CustomAutocomplete
+    disablePortal
+    id="combo-box-demo"
+    options={Brands}
+    sx={{ width: 180, height: 50, backgroundColor:'black', border: '0.75px solid #B47D0E', borderRadius: 2,  }}
+    renderInput={(params) => <CustomTextField {...params} label="brand" sx={{ color: 'red' }} variant="outlined"/>}
+  />
+  <CustomAutocomplete
+    disablePortal
+    id="combo-box-demo"
+    options={iso}
+    sx={{ width: 180, height: 50,backgroundColor:'black' ,  border: '0.75px solid #B47D0E',borderRadius: 2}}
+    renderInput={(params) => <CustomTextField {...params} label="iso" sx={{ color: 'red' }} variant="outlined"/>}
+  />
+</Box>
+
       <Card sx={{ display: 'flex', width: 500, height: 200, backgroundColor:'black', borderRadius: 0 ,}}>
   <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
     <CardMedia
