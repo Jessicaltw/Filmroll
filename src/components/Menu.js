@@ -36,15 +36,19 @@ export default function LabelBottomNavigation() {
           color: value === 'favorite' ? 'white' : 'white', fontSize: '2rem',}}/>}
       />
       <BottomNavigationAction
+      component={Link} 
+      to="/filmrolls"
         label="Rolls"
         value="favorites"
         icon={<CameraRollIcon sx={{ color: 'white', fontSize: '2rem',}}/>}
       />
-      <BottomNavigationAction component={Link}  to="/home"
+      <BottomNavigationAction 
+        component={Link} 
+        to="/home"
         label="Home"
         value="nearby"
-        icon={<HomeIcon sx={{ color: 'white' , fontSize: '2rem',}} />}
-      />
+        icon={<HomeIcon sx={{ color: 'white', fontSize: '2rem' }} />} 
+/>
       <BottomNavigationAction 
       label="Account" 
       value="folder" 

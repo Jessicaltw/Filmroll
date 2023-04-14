@@ -19,7 +19,7 @@ function App() {
       <Stack direction="row" justifyContent="center" mt={0}>
     <div className="App">
       <ButtonAppBar /> 
-      <BrowserRouter sx={{ margin: 0 }}>
+      <BrowserRouter sx={{ margin: 0, position:'fixed', bottom:0 }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route exact path="/home" element={<Home />} />

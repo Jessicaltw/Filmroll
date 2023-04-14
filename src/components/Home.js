@@ -8,12 +8,9 @@ import disneyImage from '../assets/img/disney.jpg';
 import streetImage from '../assets/img/street.jpeg';
 import towerImage from '../assets/img/tower.webp';
 import ciraImage from '../assets/img/cira.jpg';
-import buildingImage from '../assets/img/building.jpg';
 import Rating from '@mui/material/Rating';
-import StarBorderIcon from '@mui/icons-material/StarBorder'; 
 import StarIcon from '@mui/icons-material/Star';
 import bnwImage from '../assets/img/bnw.jpg';
-import kodakportraImage from '../assets/img/kodakportra.webp';
 import japanImage from '../assets/img/japan.jpg';
 
 
