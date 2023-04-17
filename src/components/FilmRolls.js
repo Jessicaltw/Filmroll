@@ -28,6 +28,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
 import { useState } from 'react';
 
+import { Link } from 'react-router-dom';
+
+
 
 function MyComponent() {
   const [brandFocused, setBrandFocused] = useState(false);
@@ -140,15 +143,20 @@ export default function MediaControlCard() {
     renderInput={(params) => <CustomTextField {...params} label="iso" sx={{ color: 'red' }} variant="outlined"/>}
   />
 </Box>
-
-      <Card sx={{ display: 'flex', width: 500, height: 200, backgroundColor:'black', borderRadius: 0 ,}}>
-  <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+     
+    <Card sx={{ display: 'flex', width: 500, height: 200, backgroundColor:'black', borderRadius: 0 ,}}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%',height: '100%' }}>
+    <Link to='/roll'>
+    <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
     <CardMedia
       component="img"
       sx={{ width: '40%', padding: '1rem', objectFit: 'cover', paddingBottom: '0' }}
       image={kodak200Image}
       alt="Album 2 cover"
     />
+    </Box>
+    </Link>
+    
     <CardContent sx={{ color: 'white', paddingTop: '0.5rem', paddingBottom: '1rem' }}>
       <Typography sx={{ color: 'white' }} variant="subtitle1" color="text.secondary" component="div">
       Kodak Gold 200
@@ -161,16 +169,21 @@ export default function MediaControlCard() {
     image={sudaImage}
     alt="Album 2 cover"
   />
+  
 </Card>
-      
+
       <Card sx={{ display: 'flex', width: 500, height: 200, backgroundColor:'black', borderRadius: 0 }}>
   <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+  <Link to='/roll'>
+  <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
     <CardMedia
       component="img"
       sx={{ width: '50%', padding: '1rem', objectFit: 'cover', paddingBottom: '0' }}
       image={bnwfilmImage}
       alt="Album 2 cover"
     />
+    </Box>
+    </Link>
     <CardContent sx={{ color: 'white', paddingTop: '0rem', paddingBottom: '1rem' }}>
       <Typography sx={{ color: 'white' }} variant="subtitle1" color="text.secondary" component="div">
         Ilford XP2 Super
@@ -189,12 +202,16 @@ export default function MediaControlCard() {
 
 <Card sx={{ display: 'flex', width: 500, height: 200, backgroundColor:'black', borderRadius: 0 }}>
   <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+  <Link to='/roll'>
+  <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
     <CardMedia
       component="img"
       sx={{ width: '35%', padding: '1rem', objectFit: 'cover', paddingBottom: '0' }}
       image={fuji400Image}
       alt="Album 2 cover"
     />
+    </Box>
+    </Link>
     <CardContent sx={{ color: 'white', paddingTop: '0rem', paddingBottom: '1rem' }}>
       <Typography sx={{ color: 'white' }} variant="subtitle1" color="text.secondary" component="div">
       FujiFilm 400
@@ -211,12 +228,16 @@ export default function MediaControlCard() {
 
 <Card sx={{ display: 'flex', width: 500, height: 200, backgroundColor:'black', borderRadius: 0 }}>
   <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+  <Link to='/roll'>
+  <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
     <CardMedia
       component="img"
       sx={{ width: '40%', padding: '1rem', objectFit: 'cover', paddingBottom: '0' }}
       image={kodak100Image}
       alt="Album 2 cover"
     />
+     </Box>
+    </Link>
     <CardContent sx={{ color: 'white', paddingTop: '0.5rem', paddingBottom: '1rem' }}>
       <Typography sx={{ color: 'white' }} variant="subtitle1" color="text.secondary" component="div">
       Kodak Portra 400
@@ -233,12 +254,16 @@ export default function MediaControlCard() {
 
 <Card sx={{ display: 'flex', width: 500, height: 200, backgroundColor:'black', borderRadius: 0 }}>
   <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+  <Link to='/roll'>
+  <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
     <CardMedia
       component="img"
       sx={{ width: '35%', padding: '1rem', objectFit: 'cover', paddingBottom: '0' }}
       image={colorplusImage}
       alt="Album 2 cover"
     />
+    </Box>
+    </Link>
     <CardContent sx={{ color: 'white', paddingTop: '1rem', paddingBottom: '1rem' }}>
       <Typography sx={{ color: 'white' }} variant="subtitle1" color="text.secondary" component="div">
         Kodak ColourPlus

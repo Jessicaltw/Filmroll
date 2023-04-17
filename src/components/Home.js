@@ -12,6 +12,8 @@ import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import bnwImage from '../assets/img/bnw.jpg';
 import japanImage from '../assets/img/japan.jpg';
+import { linkClasses } from '@mui/material';
+import {Link} from '@mui/material';
 
 
 
@@ -23,6 +25,8 @@ function srcset(image, width, height, rows = 1, cols = 1) {
     }&fit=crop&auto=format&dpr=2 2x`,
   };
 }
+
+
 
 export default function CustomImageList() {
   return (
@@ -42,14 +46,17 @@ export default function CustomImageList() {
         const rows = item.featured ? 2 : 1;
 
         return (
-          <ImageListItem key={item.img} cols={cols} rows={rows} >
+          <ImageListItem key={item.img} cols={cols} rows={rows} s>
+            <div style={{position: 'absolute', top: 0, bottom: 0, left: 0, right: 0}}>
+            <Link href={item.link}>
             <img
               {...srcset(item.img, 250, 200, rows, cols)}
               alt={item.title}
               loading="lazy"
               style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-            
             />
+            </Link>
+            </div>
 
 <ImageListItemBar
   sx={{
@@ -108,12 +115,14 @@ export default function CustomImageList() {
 }
 
 const itemData = [
+  
   {
     img: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*_svphjAkeWsqObuteDmSoA.jpeg',
     title: 'Fujifilm Superia X-Tra 400',
     author: '@bkristastucchio',
     featured: true,
-    rating : 5
+    rating : 5,
+    link: '/review.js'
   },
   {
     img: streetImage ,

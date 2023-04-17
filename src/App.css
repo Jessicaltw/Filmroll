@@ -37,3 +37,9 @@
   }
 }
 
+
+
+.MuiImageList-root {
+  overflow: scroll !important;
+}
+

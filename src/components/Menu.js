@@ -50,6 +50,8 @@ export default function LabelBottomNavigation() {
         icon={<HomeIcon sx={{ color: 'white', fontSize: '2rem' }} />} 
 />
       <BottomNavigationAction 
+       component={Link} 
+       to="/account"
       label="Account" 
       value="folder" 
       icon={< AccountCircleIcon sx={{ color: 'white' , fontSize: '2rem',}}/>} />
