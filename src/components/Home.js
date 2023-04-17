@@ -31,12 +31,15 @@ function srcset(image, width, height, rows = 1, cols = 1) {
 export default function CustomImageList() {
   return (
     <ImageList
+
       sx={{
         width: 500,
         height: 800,
         padding:0,
         margin:0,
         transform: 'translateZ(0)',
+        '&::-webkit-scrollbar': {
+          display: 'none'}
       }}
       rowHeight={200}
       gap={0}
@@ -122,7 +125,7 @@ const itemData = [
     author: '@bkristastucchio',
     featured: true,
     rating : 5,
-    link: '/review.js'
+    link: '/review'
   },
   {
     img: streetImage ,
@@ -150,10 +153,11 @@ const itemData = [
   },
   {
     img: dogImage,
-    title: 'Kodak Ultra Max 400',
-    author: '@nolanissac',
+    title: 'Kodak Gold 200',
+    author: '@rolanissac',
     featured: true,
-    rating : 3
+    rating : 4,
+    link: '/review'
   },
   {
     img: towerImage,

@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Menu from "./components/Menu";
 import Review from './components/Review';
 import Roll from './components/Roll';
+import AddReview from './components/AddReview';
 import {Box} from '@mui/material';
 import {Stack} from '@mui/material';
 import ButtonAppBar from './components/ButtonAppBar';
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/filmrolls" element={<FilmRolls />} />
           <Route exact path="/account" element={<Account/>} />
           <Route exact path="/roll" element={<Roll/>} />
+          <Route exact path="/addreview" element={<AddReview/>} />
         </Routes>
     
         <Menu />

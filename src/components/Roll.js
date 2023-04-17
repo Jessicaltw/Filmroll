@@ -23,6 +23,9 @@ import Icon from '@mui/material/Icon';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import StarsRoundedIcon from '@mui/icons-material/StarsRounded';
 import RateReviewRoundedIcon from '@mui/icons-material/RateReviewRounded';
+import sheepImage from '../assets/img/sheep.jpg';
+import sudaImage from '../assets/img/suda.jpg';
+import dogImage from '../assets/img/dog.jpg';
 
 
   
@@ -117,8 +120,10 @@ export default function CustomImageList() {
 
         </Box>
         <Box sx={{ color: 'white', fontSize: '2rem', paddingLeft: '5rem'}}>
-        <Typography variant="subtitle1" sx={{ color: 'white', paddingLeft: '0.5rem' }}>Add a review</Typography>
-          <RateReviewRoundedIcon style={{  fontSize: '2rem', paddingTop:'0.5rem'  }}/>
+        <a href="/addreview" style={{ textDecoration: 'none' }}>
+  <Typography variant="subtitle1" sx={{ color: 'white', paddingLeft: '0.5rem' }}>Add a review</Typography>
+  <RateReviewRoundedIcon style={{  fontSize: '2rem', paddingTop:'0.5rem', color:'white' }}/>
+</a>
         </Box>
       </Box>
     </CardContent>
@@ -161,7 +166,7 @@ export default function CustomImageList() {
               {...srcset(item.img, 250, 200, rows, cols)}
               alt={item.title}
               loading="lazy"
-              style={{ objectFit: 'cover', width: '100%', height: '100%', left: '1rem', right:  '1rem', bottom: '1rem'}}
+              style={{ objectFit: 'cover', width: '100%', height: '100%', left: '1rem', right:  '1rem', }}
             />
             </Link>
             </div>
@@ -170,7 +175,7 @@ export default function CustomImageList() {
 <ImageListItemBar
   sx={{
     alignItems: 'flex-start',   overflow: 'hidden' ,
-    bottom: 0, left: '1rem', right: 0, textAlign: 'left', paddingTop: '1rem', paddingBottom: '10px',
+    bottom: 0, left: '1rem', right: 0, textAlign: 'left', paddingTop: '6rem', paddingBottom: '2rem',
     background:
     'linear-gradient(to bottom, rgba(0,0,0,0) 0%, ' +
     'rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.7) 100%)',
@@ -234,24 +239,24 @@ const itemData = [
 
   {
     img: streetImage ,
-    title: 'Kodak Gold 200',
+    title: 'A Night Out',
     author: '@rollelflex_grahy726',
     rating : 4
   },
   {
-    img: 'https://storage.googleapis.com/orms-blog/1/2020/11/r1-08357-031a.jpg',
-    title: 'Fujifilm Superia 400',
+    img: dogImage,
+    title: 'The warmest C41',
     author: '@helloimnik',
     rating : 3
   },
   {
-    img: streetImage ,
+    img: sheepImage ,
     title: 'Kodak Gold 200',
     author: '@rollelflex_grahy726',
     rating : 4
   },
   {
-    img: 'https://storage.googleapis.com/orms-blog/1/2020/11/r1-08357-031a.jpg',
+    img: sudaImage,
     title: 'Fujifilm Superia 400',
     author: '@helloimnik',
     rating : 3
