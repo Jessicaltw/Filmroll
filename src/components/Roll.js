@@ -247,7 +247,8 @@ const itemData = [
     img: dogImage,
     title: 'The warmest C41',
     author: '@helloimnik',
-    rating : 3
+    rating : 3,
+    link: '/review'
   },
   {
     img: sheepImage ,
