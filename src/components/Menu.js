@@ -9,11 +9,13 @@ import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from "react-router-dom";
-
+import RateReviewRoundedIcon from '@mui/icons-material/RateReviewRounded';
+import { useLocation } from "react-router-dom";
 
 
 export default function LabelBottomNavigation() {
   const [value, setValue] = React.useState('recents');
+  const location = useLocation();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -30,31 +32,28 @@ export default function LabelBottomNavigation() {
     transform: 'translateX(-50%)'
      }} value={value} onChange={handleChange}>
       <BottomNavigationAction 
-        label="Favorite"
-        value="favorite" 
-        icon={<FavoriteIcon sx={{ 
-          color: value === 'favorite' ? 'white' : 'white', fontSize: '2rem',}}/>}
+          component={Link} 
+          to="/addreview"
+        icon={<RateReviewRoundedIcon sx={{ 
+          color: location.pathname === "/addreview" ? "#B47D0E" : "white", fontSize: '2rem',}}/>}
       />
       <BottomNavigationAction
       component={Link} 
       to="/filmrolls"
-        label="Rolls"
-        value="favorites"
-        icon={<CameraRollIcon sx={{ color: 'white', fontSize: '2rem',}}/>}
+        
+        icon={<CameraRollIcon sx={{color: location.pathname === "/filmrolls" ? "#B47D0E" : "white", fontSize: '2rem',}}/>}
       />
       <BottomNavigationAction 
         component={Link} 
         to="/home"
-        label="Home"
-        value="nearby"
-        icon={<HomeIcon sx={{ color: 'white', fontSize: '2rem' }} />} 
+       
+        icon={<HomeIcon sx={{ color: location.pathname === "/home" ? "#B47D0E" : "white", fontSize: '2rem' }} />} 
 />
       <BottomNavigationAction 
        component={Link} 
        to="/account"
-      label="Account" 
-      value="folder" 
-      icon={< AccountCircleIcon sx={{ color: 'white' , fontSize: '2rem',}}/>} />
+  
+      icon={< AccountCircleIcon sx={{ color: location.pathname === "/account" ? "#B47D0E" : "white", fontSize: '2rem',}}/>} />
     </BottomNavigation >
   );
 }
