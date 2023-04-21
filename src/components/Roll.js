@@ -49,10 +49,10 @@ export default function CustomImageList() {
   return (
 
     <Box sx={{ display: 'flex', flexDirection: 'column',width: 500,
-    height: 800}}>
+    height: 800, overflow: 'auto'}}>
 
-<Card sx={{ display: 'flex', backgroundColor: '#333333', height: 400, position: 'relative',borderRadius: 0 }}>
-  <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, flexShrink: 1 }}>
+<Card sx={{ display: 'flex', backgroundColor: '#333333', height: 400, position: 'relative',borderRadius: 0, overflow:'auto' }}>
+  <Box sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1, flexShrink: 1 , overflow:'auto'}}>
     
   </Box>
   <CardMedia
@@ -136,9 +136,7 @@ export default function CustomImageList() {
         height: 800,
         padding:0,
         margin:0,
-        overflow: 'hidden', 
-      
-      
+        overflow: 'hidden',
         transform: 'translateZ(0)',
         backgroundColor:'black',
         '&::-webkit-scrollbar': {
@@ -251,7 +249,7 @@ const itemData = [
     link: '/review'
   },
   {
-    img: sheepImage ,
+    img: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*_svphjAkeWsqObuteDmSoA.jpeg" ,
     title: 'Kodak Gold 200',
     author: '@rollelflex_grahy726',
     rating : 4

@@ -49,6 +49,11 @@ export default function LabelBottomNavigation() {
        
         icon={<HomeIcon sx={{ color: location.pathname === "/home" ? "#B47D0E" : "white", fontSize: '2rem' }} />} 
 />
+<BottomNavigationAction 
+        component={Link} 
+        to="/search"   
+        icon={<SearchIcon sx={{ color: location.pathname === "/search" ? "#B47D0E" : "white", fontSize: '2rem' }} />} 
+/>
       <BottomNavigationAction 
        component={Link} 
        to="/account"

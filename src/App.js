@@ -5,6 +5,7 @@ import FilmRolls from './components/FilmRolls';
 import Home from './components/Home';
 import Menu from "./components/Menu";
 import Review from './components/Review';
+import Search from './components/Search';
 import Roll from './components/Roll';
 import AddReview from './components/AddReview';
 import Login from './components/Login';
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/roll" element={<Roll/>} />
           <Route exact path="/addreview" element={<AddReview/>} />
           <Route exact path="/login" element={<Login/>} />
+          <Route exact path="/search" element={<Search/>} />
           
         </Routes>
     

@@ -27,15 +27,35 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
 import { useState } from 'react';
-
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { Link } from 'react-router-dom';
+import Rating from '@mui/material/Rating';
+import StarIcon from '@mui/icons-material/Star';
+import japanImage from '../assets/img/japan.jpg';
+import disneyImage from '../assets/img/disney.jpg';
+import streetImage from '../assets/img/street.jpeg';
+import ciraImage from '../assets/img/cira.jpg';
 
 
 
 function MyComponent() {
   const [brandFocused, setBrandFocused] = useState(false);
   const [isoFocused, setIsoFocused] = useState(false);
+  
 }
+
+function srcset(image, width, height, rows = 1, cols = 1) {
+    return {
+      src: `${image}?w=${width * cols}&h=${height * rows}&fit=crop&auto=format`,
+      srcSet: `${image}?w=${width * cols}&h=${
+        height * rows
+      }&fit=crop&auto=format&dpr=2 2x`,
+  
+      
+    };
+  }
 
 
 
@@ -82,7 +102,6 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
 const CustomAutocomplete = styled(Autocomplete)`
   .MuiAutocomplete-popupIndicator {
     color: yellow;
-
   }
   .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: #B47D0E;
@@ -115,8 +134,8 @@ export default function MediaControlCard() {
   <Box sx={{ mx: 'auto' }}>
     <InputBase
       sx={{ ml: 1 }}
-      placeholder="Search Film Rolls"
-      inputProps={{ 'aria-label': 'search' }}
+      placeholder="Search"
+      inputProps={{ 'aria-label': 'search google maps' }}
     />
   </Box>
   <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
@@ -198,85 +217,98 @@ export default function MediaControlCard() {
   />
 </Card>
 
+<ImageList script src="myscript.js"
+        sx={{
+          width: 500,
+          height: 620,
+          paddingTop:'2rem',  
+          margin:0,
+          overflow: 'hidden', 
+          transform: 'translateZ(0)',
+          backgroundColor:'black',
+          '&::-webkit-scrollbar': {
+            display: 'none'}
+          }}
+        rowHeight={300}
+        gap={0}
+      >
+        {itemData.map((item) => {
+          const cols = item.featured ? 2 : 1;
+          const rows = item.featured ? 2 : 1;
+          return (
+            <ImageListItem key={item.img} cols={cols} rows={rows} >
+              <div style={{position: 'absolute', top: '0px', bottom: 0, left: '1rem', right:  '1rem', bottom: '1rem'}}>
+                <Link href={item.link}>
+                  <img
+                    {...srcset(item.img, 250, 200, rows, cols)}
+                    alt={item.title}
+                    loading="lazy"
+                    style={{ objectFit: 'cover', width: '100%', height: '100%', left: '1rem', right:  '1rem', }}
+                  />
+                </Link>
+              </div>
 
 
-<Card sx={{ display: 'flex', width: 500, height: 200, backgroundColor:'black', borderRadius: 0 }}>
-  <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-  <Link to='/roll'>
-  <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-    <CardMedia
-      component="img"
-      sx={{ width: '35%', padding: '1rem', objectFit: 'cover', paddingBottom: '0' }}
-      image={fuji400Image}
-      alt="Album 2 cover"
-    />
-    </Box>
-    </Link>
-    <CardContent sx={{ color: 'white', paddingTop: '0rem', paddingBottom: '1rem' }}>
-      <Typography sx={{ color: 'white' }} variant="subtitle1" color="text.secondary" component="div">
-      FujiFilm 400
-      </Typography>
-    </CardContent>
-  </Box>
-  <CardMedia
-    component="img"
-    sx={{ width: '100%', height: '80%', padding: '1rem' }}
-    image={flowerImage}
-    alt="Album 2 cover"
-  />
-</Card>
 
-<Card sx={{ display: 'flex', width: 500, height: 200, backgroundColor:'black', borderRadius: 0 }}>
-  <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-  <Link to='/roll'>
-  <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-    <CardMedia
-      component="img"
-      sx={{ width: '40%', padding: '1rem', objectFit: 'cover', paddingBottom: '0' }}
-      image={kodak100Image}
-      alt="Album 2 cover"
-    />
-     </Box>
-    </Link>
-    <CardContent sx={{ color: 'white', paddingTop: '0.5rem', paddingBottom: '1rem' }}>
-      <Typography sx={{ color: 'white' }} variant="subtitle1" color="text.secondary" component="div">
-      Kodak Portra 400
-      </Typography>
-    </CardContent>
-  </Box>
-  <CardMedia
-    component="img"
-    sx={{ width: '100%', height: '80%', padding: '1rem' }}
-    image={sheepImage}
-    alt="Album 2 cover"
-  />
-</Card>
+              <ImageListItemBar
+  sx={{
+    alignItems: 'flex-start',   overflow: 'hidden' ,
+    bottom: '1rem', left: '1rem', right: '1rem', textAlign: 'left', paddingTop: '5rem', paddingBottom: '2rem',
+    background:
+    'linear-gradient(to bottom, rgba(0,0,0,0) 0%, ' +
+    'rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.7) 100%)',
+    
 
-<Card sx={{ display: 'flex', width: 500, height: 200, backgroundColor:'black', borderRadius: 0 }}>
-  <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-  <Link to='/roll'>
-  <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-    <CardMedia
-      component="img"
-      sx={{ width: '35%', padding: '1rem', objectFit: 'cover', paddingBottom: '0' }}
-      image={colorplusImage}
-      alt="Album 2 cover"
-    />
-    </Box>
-    </Link>
-    <CardContent sx={{ color: 'white', paddingTop: '1rem', paddingBottom: '1rem' }}>
-      <Typography sx={{ color: 'white' }} variant="subtitle1" color="text.secondary" component="div">
-        Kodak ColourPlus
-      </Typography>
-    </CardContent>
-  </Box>
-  <CardMedia
-    component="img"
-    sx={{ width: '100%', height: '80%', padding: '1rem' }}
-    image={towerImage}
-    alt="Album 2 cover"
-  />
-</Card>
+  }}
+
+  title={
+    <div className="title-wrapper">
+      {item.title}
+    </div>
+  }
+  subtitle={
+    <div className="subtitle-wrapper">
+      <div>{item.film}</div>
+      <div style={{ marginTop: '5px', marginBottom: '4px' }}>{item.author}</div>
+      <div style={{marrinTop:'4px'}}></div>
+      <Rating
+         name="read-only"
+         value={item.rating}
+         readOnly
+         emptyIcon={<StarIcon style={{color: '#C9C9C9',  fontSize: '1rem', }} />}
+         icon={<StarIcon style={{color: '#B47D0E', fontSize: '1rem', }} />}
+         sx={{ 
+          position: 'absolute', 
+          top: '80%', 
+          left: item.featured ? 'calc(55px)' : '25%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 1,
+          background: 'transparent', 
+      
+         }}
+      />
+    </div>
+  }
+  position="bottom"
+  actionIcon={
+    <IconButton
+      sx={{  color: 'white' }}
+      aria-label={`star ${item.title}`}
+    >
+    </IconButton>
+  }
+  actionPosition="left"
+>
+</ImageListItemBar>
+      
+          </ImageListItem>
+          
+        );
+      })}
+    </ImageList>
+
+
+
 
 
 </ScrollableBox>
@@ -286,3 +318,37 @@ export default function MediaControlCard() {
 
   );
 }
+
+const itemData = [
+
+    {
+      img: ciraImage ,
+      title: 'Cira Colour',
+      film: 'CiraFilm 800',
+      author: '@rollelflex_grahy726',
+      rating : 4
+    },
+    {
+      img: streetImage,
+      title: 'Best Cinematic Film',
+      film: 'Kodak Portra 400',
+      author: '@rollelflex_grahy726',
+      rating : 3,
+      link: '/review'
+    },
+    {
+      img: disneyImage,
+      title: 'Disney Shots',
+      film: 'Kodak Gold 200',
+      author: '@rollelflex_grahy726',
+      rating : 4
+    },
+    {
+      img: japanImage,
+      title: 'Japan Trip',
+      film: 'Fujifilm Superia 400',
+      author: '@helloimnik',
+      rating : 3
+    }
+  
+  ];

@@ -50,7 +50,7 @@ export default function CustomImageList() {
         const rows = item.featured ? 2 : 1;
 
         return (
-          <ImageListItem key={item.img} cols={cols} rows={rows} s>
+          <ImageListItem key={item.img} cols={cols} rows={rows} sx={{overflow: 'hidden'}}>
             <div style={{position: 'absolute', top: 0, bottom: 0, left: 0, right: 0}}>
             <Link href={item.link}>
             <img
@@ -77,10 +77,12 @@ export default function CustomImageList() {
       {item.title}
     </div>
   }
+  
   subtitle={
     <div className="subtitle-wrapper">
-      <div>{item.author}</div>
-      <div style={{marrinTop:'4px'}}></div>
+      <div style={{ color:'white' }}>{item.film}</div>
+      <div style={{ marginTop: '5px', marginBottom: '4px' }}>{item.author}</div>
+      <div style={{marrinTop:'4x'}}></div>
       <Rating
          name="read-only"
          value={item.rating}
@@ -122,7 +124,8 @@ const itemData = [
   
   {
     img: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*_svphjAkeWsqObuteDmSoA.jpeg',
-    title: 'Fujifilm Superia X-Tra 400',
+    title: 'Best Cinematic Film',
+    film: 'Kodak Portra 400',
     author: '@bkristastucchio',
     featured: true,
     rating : 5,
@@ -130,31 +133,40 @@ const itemData = [
   },
   {
     img: streetImage ,
-    title: 'Kodak Gold 200',
+    title: 'A Night Out',
+    film: 'Kodak Gold',
     author: '@rollelflex_grahy726',
-    rating : 4
+    rating : 4,
+    link: '/review'
   },
   {
     img: flowerImage,
-    title: 'Fujifilm Superia 400',
+    title: 'Flower on Film',
+    film: 'Fujifilm Superia 400',
     author: '@helloimnik',
-    rating : 3
+    rating : 3,
+    link: '/review'
   },
   {
     img: ciraImage,
-    title: 'CiraFilm 800',
+    title: 'Cira Colour',
+    film: 'CiraFilm 800',
     author: '@arwinneil',
-    rating : 3
+    rating : 3,
+    link: '/review'
   },
   {
     img: disneyImage,
-    title: 'Kodak ColorPlus',
+    title: 'The best with colour',
+    film: 'Kodak ColorPlus',
     author: '@hjrc33',
-    rating : 4
+    rating : 4,
+    link: '/review'
   },
   {
     img: dogImage,
-    title: 'Kodak Gold 200',
+    title: 'Gold 200 Review',
+    film: 'Kodak Gold 200',
     author: '@rolanissac',
     featured: true,
     rating : 4,
@@ -162,22 +174,28 @@ const itemData = [
   },
   {
     img: towerImage,
-    title: 'Kodak Portra 400',
+    title: 'In the City',
+    film: 'Kodak Portra 400',
     author: '@tjdragotta',
-    rating : 3
+    rating : 3,
+    link: '/review'
   },
   {
     img: bnwImage,
-    title: 'Ilford XP2 Super',
+    title: 'First with BnW',
+    film: 'Ilford XP2 Super',
     author: '@katie_wasserman',
-    rating : 4
+    rating : 4,
+    link: '/review'
   },
   {
     img: japanImage ,
-    title: 'Kodak 160',
+    title: 'Japan Trip',
+    film: 'Kodak 160',
     author: '@silverdalex',
     featured: true,
-    rating : 5
+    rating : 5,
+    link: '/review'
   },
  
 ];
