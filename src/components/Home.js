@@ -12,6 +12,7 @@ import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import bnwImage from '../assets/img/bnw.jpg';
 import japanImage from '../assets/img/japan.jpg';
+import flowerImage from '../assets/img/flower.jpg';
 import { linkClasses } from '@mui/material';
 import {Link} from '@mui/material';
 
@@ -134,7 +135,7 @@ const itemData = [
     rating : 4
   },
   {
-    img: 'https://storage.googleapis.com/orms-blog/1/2020/11/r1-08357-031a.jpg',
+    img: flowerImage,
     title: 'Fujifilm Superia 400',
     author: '@helloimnik',
     rating : 3

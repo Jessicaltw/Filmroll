@@ -7,6 +7,25 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import { useSelector, useDispatch } from 'react-redux'
+import { define as reducerDefine, add as reducerAdd} from '../redux/login'
+import { useState } from 'react';
+
+
+
+
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs, doc, setDoc, query, orderBy, limit} from 'firebase/firestore/lite';
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBwz2KQyp-L542C7sTXIXBzkquM4jVRV_c",
+  authDomain: "filmroll-7ac29.firebaseapp.com",
+  projectId: "filmroll-7ac29",
+  storageBucket: "filmroll-7ac29.appspot.com",
+  messagingSenderId: "254118101228",
+  appId: "1:254118101228:web:c75c27c395c0faaec4e5c9"
+};
 
 
 export default function SignIn() {
@@ -19,6 +38,51 @@ export default function SignIn() {
     });
     
   };
+
+  // Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function getSnapshots() {
+    const col = collection(db, 'database');
+    const snapshot = await getDocs(col);
+    const login = snapshot.docs.map(doc => doc.data());
+
+    console.log(login);
+    return login;
+  }
+
+  async function addSnapshot(){
+
+    const timestamp = String(new Date().getTime());
+    const json = window.localStorage.getItem("payload");
+
+    await setDoc(doc(db, "database", timestamp), {
+        user: json,
+        login_time: timestamp
+    });             
+
+}
+
+  const field = useSelector((state) => state.login.field);
+  const items = useSelector((state) => state.login.items);
+
+  const dispatch = useDispatch()
+
+  function add(){
+    dispatch (reducerAdd(field))
+  }
+  function define(value){
+
+    dispatch (reducerDefine(value))
+
+  }
+   
+  const [password, setPassword] = useState('');
+
+  const payload = useSelector((state) => state);
+  const json = JSON.stringify(payload)
+  window.localStorage.setItem("payload",json);
 
   return (
     <Container component="main" maxWidth="xs" sx={{ height: 730 }} >
@@ -43,6 +107,8 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            value={field}
+            onChange={(e) => define(e.target.value)}
           />
           <TextField
             margin="normal"
@@ -53,6 +119,8 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <FormControlLabel sx={{ color:  'black'}} 
             control={<Checkbox value="remember" color="primary" />}
@@ -63,6 +131,7 @@ export default function SignIn() {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 , backgroundColor:  '#B47D0E'}}
+            onClick={(e) => addSnapshot()}
           >
             Sign In
           </Button>
